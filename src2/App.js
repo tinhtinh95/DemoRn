@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {TabNavigator} from 'react-navigation';
 import {  View,StyleSheet, Text, TouchableOpacity, FlatList } from 'react-native';
 import store from './redux/store';
-import Main  from './Main';
+import Main  from './components/Main';
 import {Provider}  from 'react-redux';
 
 

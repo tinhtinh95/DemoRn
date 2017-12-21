@@ -18,6 +18,7 @@ const defaultState={
         { id: 14, en: 'arrange', vn: 'sắp xếp', memorized: false, isShow: false }
     ],
     isShow: true,
+    
 }
 
 const reducer=(state=defaultState,action)=>{
