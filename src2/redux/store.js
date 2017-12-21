@@ -2,7 +2,7 @@ import {createStore} from 'redux';
 
 const defaultState={
     arrWords:[
-        {id: 1, en: 'action', vn: 'hành động', memorized: true, isShow: true },
+        { id: 1, en: 'action', vn: 'hành động', memorized: true, isShow: true },
         { id: 2, en: 'actor', vn: 'diễn viên', memorized: false, isShow: false },
         { id: 3, en: 'activity', vn: 'hoạt động', memorized: true, isShow: false },
         { id: 4, en: 'active', vn: 'chủ động', memorized: true, isShow: false },
@@ -15,7 +15,7 @@ const defaultState={
         { id: 11, en: 'abandon', vn: 'từ bỏ', memorized: true, isShow: false },
         { id: 12, en: 'above', vn: 'ở trên', memorized: false, isShow: false },
         { id: 13, en: 'against', vn: 'phản đối', memorized: true, isShow: false },
-        { id: 14, en: 'arrange', vn: 'sắp xếp', memorized: false, isShow: false }
+        { id: 14, en: 'arrange', vn: 'sắp xếp', memorized: true, isShow: false }
     ],
     isShow: true,
     

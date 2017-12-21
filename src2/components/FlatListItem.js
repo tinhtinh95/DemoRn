@@ -9,16 +9,16 @@ export default class Word extends Component{
   
 
     render(){
-        const {en,vn,memmorized}=this.props.myWord;
-        const memmorized_forget=memmorized ? 'ahihi':'ahoho';
+        const {en,vn,memorized}=this.props.myWord;
+        const textDecorationLine=memorized ? 'line-through':'none';
         return(
             <View style={styles.container}>
                 <View style={{padding:5}}>
-                    <Text>
+                    <Text style={{textDecorationLine:textDecorationLine}}>
                         {en}
                     </Text>
                     <Text>
-                    {memmorized_forget}
+                    {vn}
                     </Text>
                 </View>
                 <TouchableOpacity><Text>Show</Text></TouchableOpacity>

@@ -19,6 +19,7 @@ class MEMORIZED extends Component{
                 <FlatList style={{marginTop:10}}
                     data={this.getListWord()}
                     renderItem={({item})=> <Word myWord={item}></Word>}
+                    keyExtractor={item=>item.id}
                 >
                 </FlatList>
             </View> 

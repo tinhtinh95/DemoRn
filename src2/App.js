@@ -4,7 +4,7 @@ import {  View,StyleSheet, Text, TouchableOpacity, FlatList } from 'react-native
 import store from './redux/store';
 import Main  from './components/Main';
 import {Provider}  from 'react-redux';
-
+import SHOWALL  from './components/TabShowAll';
 
 
 export default class App extends Component{

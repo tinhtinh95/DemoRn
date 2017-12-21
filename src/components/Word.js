@@ -14,6 +14,7 @@ class Word extends Component{
 
     render(){
         const{en,vn,memorized,isShow} =this.props.myWord;
+        alert(memorized);
         const textDecorationLine= memorized ? 'line-through' :'none';
         const memorized_forget= memorized ? 'Forget' :'Memorized';
         const meaning=isShow ? vn : '';

@@ -9,18 +9,20 @@ class SHOWALL extends Component{
     static navigationOptions={
         title:"SHOW ALL"
     }
-    getListWord(){
+    getWordList(){
         const {myArrWords}=this.props;
         return myArrWords;
     }
     render(){
         return(
             <View style={styles.container}>
+
                 <FlatList style={{marginTop:10}}
-                    data={this.getListWord()}
-                    renderItem={({item})=> <Word myWord={item}></Word>}
-                >
-                </FlatList>
+                    data={this.getWordList()}
+                    renderItem={({item}) => <Word myWord={item}/>}
+                    keyExtractor={item =>item.id}
+                    >
+                     </FlatList>
             </View> 
         )
     }
@@ -28,7 +30,7 @@ class SHOWALL extends Component{
 function mapStateToProps(state){
     return {
         myArrWords: state.arrWords,
-    }
+    };
 }
 export default connect(mapStateToProps)(SHOWALL);
 

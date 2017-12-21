@@ -7,11 +7,15 @@ import {connect} from 'react-redux';
 
 class NEEDPRACTICE extends Component{
     static navigationOptions={
-        title:"NEEDPRACTICE"
+       title:"NEEDPRACTICE",
+    //    headerTintColor: 'blue',
+    //    headerStyle: {
+    //      backgroundColor: 'red'
+    //    },
     }
     getListWord(){
         const {myArrWords}=this.props;
-        return myArrWords.filter(e=>!e.memorized);
+        return myArrWords.filter(e =>!e.memorized);
     }
     render(){
         return(
@@ -19,6 +23,7 @@ class NEEDPRACTICE extends Component{
                 <FlatList style={{marginTop:10}}
                     data={this.getListWord()}
                     renderItem={({item})=> <Word myWord={item}></Word>}
+                    keyExtractor={item=>item.id}
                 >
                 </FlatList>
             </View> 
