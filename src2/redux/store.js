@@ -17,7 +17,7 @@ const defaultState={
         { id: 13, en: 'against', vn: 'phản đối', memorized: true, isShow: false },
         { id: 14, en: 'arrange', vn: 'sắp xếp', memorized: true, isShow: false }
     ],
-    // isShow: true,
+    isAdding: true,
     
 }
 
@@ -26,10 +26,23 @@ const reducer=(state=defaultState,action)=>{
         case 'SHOW':{
             return {
                 ...state,
+                
                 arrWords:state.arrWords.map(e=>{
                     if(e.id!==action.id) return e;
                     return {...e, isShow:!e.isShow}
                 })
+            }
+        }
+        case 'AddWord':{
+            return {
+                ...state,
+                arrWords:[{
+                    id:state.arrWords.length+1,
+                    en:action.en,
+                    vn:action.vn,
+                    memorized:false,
+                    isShow:true,
+                }].concat(state.arrWords),
             }
         }
         default:

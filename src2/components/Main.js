@@ -1,12 +1,12 @@
 import React,{Component} from 'react';
 import {TabNavigator,DrawerNavigator} from 'react-navigation';
-import {  View,StyleSheet, Text, TouchableOpacity, FlatList } from 'react-native';
+import {  View,StyleSheet, Text, TouchableOpacity, FlatList, Button } from 'react-native';
 import Word from './FlatListItem';
 import {connect} from 'react-redux';
 import SHOWALL from './TabShowAll';
 import MEMORIZED from './TabMemorized';
 import NEEDPRACTICE from './TabNeedPractice';
-
+import AddWord from './AddWord';
 const Tab=TabNavigator({
     ShowAll:{screen: SHOWALL},
     Memorized:{screen: MEMORIZED},
@@ -14,7 +14,7 @@ const Tab=TabNavigator({
 })
 class Main1 extends Component{
     static navigationOptions = {
-        drawerLabel: 'Main1',
+        drawerLabel: 'Home',
       };
     render(){
         return(
@@ -22,32 +22,27 @@ class Main1 extends Component{
                 <Tab/>
             </View> 
         )
-    }
+    }  
 }
 
-class Drawer extends Component{
-    static navigationOptions = {
-        drawerLabel: 'Drawer',
-      };
-    render(){
-        return(
-            <View style={styles.container}>
-                <Text>ahihi</Text>
-            </View> 
-        )
-    }
-}
 
 const MyApp = DrawerNavigator({
     Home: {
       screen: Main1,
     },
     Notifications: {
-      screen: Drawer,
+      screen: AddWord,
     },
   });
 
 export default  class Main extends Component{
+    static navigationOptions = {
+        headerTintColor: 'blue',
+        headerStyle: {
+          backgroundColor: 'red'
+        },
+        headerLeft: <Button onPress={()=>{}} title="Menu" />,
+      };
     render(){
         return(
             <View style={styles.container}>
