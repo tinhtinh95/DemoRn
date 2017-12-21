@@ -5,12 +5,12 @@ import {connect} from 'react-redux';
 
 
 
-export default class Word extends Component{
-  
-
+class Word extends Component{
     render(){
-        const {en,vn,memorized}=this.props.myWord;
+        const {en,vn,memorized, isShow}=this.props.myWord;
         const textDecorationLine=memorized ? 'line-through':'none';
+        const meaning=isShow ? vn : ''
+        const show=isShow ? 'Un Show': 'Show'
         return(
             <View style={styles.container}>
                 <View style={{padding:5}}>
@@ -18,14 +18,19 @@ export default class Word extends Component{
                         {en}
                     </Text>
                     <Text>
-                    {vn}
+                    {meaning}
                     </Text>
                 </View>
-                <TouchableOpacity><Text>Show</Text></TouchableOpacity>
+                <TouchableOpacity 
+                onPress={()=>this.props.dispatch({type: 'SHOW', id:this.props.myWord.id})}
+                style={styles.buttonText}>
+                    <Text>{show}</Text>
+                </TouchableOpacity>
             </View> 
         )
     }
 }
+export default connect()(Word);
 const styles=StyleSheet.create
 ({
     container:{
@@ -41,7 +46,9 @@ const styles=StyleSheet.create
         
     },
     buttonText:{
-        color:'red',
+        backgroundColor:'yellow',
+        borderWidth:1,
+        padding:5
     },
 
 });
