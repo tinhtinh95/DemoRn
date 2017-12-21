@@ -17,7 +17,7 @@ class SHOWALL extends Component{
         return(
             <View style={styles.container}>
 
-                <FlatList style={{marginTop:10}}
+                <FlatList style={{margin:10,backgroundColor:'#1abc9a'}}
                     data={this.getWordList()}
                     renderItem={({item}) => <Word myWord={item}/>}
                     keyExtractor={item =>item.id}
@@ -42,6 +42,8 @@ const styles=StyleSheet.create
         alignItems:'center',
         justifyContent:'space-around',
         backgroundColor:'#1abc9a',
+        // paddingLeft:10,
+        // paddingRight:10
     },
     buttonText:{
         color:'red',
