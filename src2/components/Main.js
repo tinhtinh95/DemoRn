@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {TabNavigator,DrawerNavigator} from 'react-navigation';
+import {TabNavigator,DrawerNavigator,StackNavigator} from 'react-navigation';
 import {  View,StyleSheet, Text, TouchableOpacity, FlatList, Button } from 'react-native';
 import Word from './FlatListItem';
 import {connect} from 'react-redux';
@@ -35,18 +35,34 @@ const MyApp = DrawerNavigator({
     },
   });
 
-export default  class Main extends Component{
-    static navigationOptions = {
-        headerTintColor: 'blue',
-        headerStyle: {
-          backgroundColor: 'red'
-        },
-        headerLeft: <Button onPress={()=>{}} title="Menu" />,
-      };
+  class Main2 extends Component{
+    static navigationOptions=({ navigation }) => ({
+        title:"ahhi",
+        headerMode: 'screen',
+        headerTitle: 'Main Screen Header',
+        drawerLabel: 'Main Screen',
+      })
     render(){
         return(
             <View style={styles.container}>
                 <MyApp/>
+            </View> 
+        )
+    }
+}
+
+  const MyApp1 = StackNavigator({
+    Home: {
+      screen: Main2,
+    },
+    
+  });
+
+export default class Main extends Component{
+    render(){
+        return(
+            <View style={styles.container}>
+                <MyApp1/>
             </View> 
         )
     }
